@@ -45,6 +45,17 @@ rungnu:
 runompgnu:
 	$(CC) -Ofast -fopenmp -std=gnu11 run.c  -lm  -o run
 
+.PHONY: cuda
+cuda:
+	nvcc -O3 llama2.cu -o llama2 -Xcudafe --diag_suppress=2464
+
+.PHONY: cuda-q8
+cuda-q8:
+	nvcc -O3 llama2-q8.cu -o llama2-q8 -Xcudafe --diag_suppress=2464
+
+quantize-q8: quantize-q8.c
+	gcc -O3 -o quantize-q8 quantize-q8.c -lm
+
 # run all tests
 .PHONY: test
 test:
