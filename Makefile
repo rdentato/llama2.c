@@ -56,6 +56,9 @@ cuda-q8:
 quantize-q8: quantize-q8.c
 	gcc -O3 -o quantize-q8 quantize-q8.c -lm
 
+quantize-f16: quantize-f16.c
+	gcc -O3 -o quantize-f16 quantize-f16.c -lm
+
 # run all tests
 .PHONY: test
 test:

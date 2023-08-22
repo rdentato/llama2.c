@@ -240,7 +240,7 @@ int main(int argc, char *argv[]) {
 
     // 'checkpoint' is necessary arg
     if (argc < 2) {
-        printf("Usage: %s <checkpoint_file>\n", argv[0]);
+        printf("Usage: %s your/model.bin\n", argv[0]);
         return 1;
     }
     if (argc >= 2) {
@@ -282,7 +282,7 @@ int main(int argc, char *argv[]) {
         checkpoint_init_weights(&weights, &config, weights_ptr, shared_weights);
 
         int ret = convert_weights_q8(&weights, &config, shared_weights);
-        if (ret == 0) printf("model converted and saved to data.bin\n");
+        if (ret == 0) printf("model converted and saved to data.q8\n");
     }
     
     // memory and file handles cleanup
